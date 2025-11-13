@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <title>Patek Phillipe</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+      background-color: #111;
+      text-align: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+.nav-bar {
+    height: 60px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+    position: relative;
+      margin: 30px 0;
+}
+
+#menu-btn  {
+    background: none;
+    border: none;
+    color: rgb(217, 214, 214);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 50px; 
+}
+
+#menu-btn:hover {
+    color: rgb(236, 228, 164);
+}
+
+
+#menu-btn i {
+    padding-left: 10px;
+    letter-spacing: 3px;
+}
+.nav-bar h4 {
+    cursor: pointer;
+}
+
+.nav-bar #search {
+    padding-right: 50px;
+    font-size: 20px;
+    color: rgb(217, 214, 214);
+}
+
+ .side-bar {
+        /* width: 350px;
+        height: 100vh; */
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        position: fixed;
+         /* top: 0;
+        left: -100%; */
+        /* z-index: 999; */
+          position: fixed;
+    top: 0;
+    left: -350px; 
+    width: 350px;
+    height: 100vh;
+    transition: left 0.25s ease;
+    z-index: 999;
+    }
+
+    .side-bar.open {
+    left: 0;
+}
+
+    #side-bar-1 {
+        height: 10%;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #cancel  {
+        font-size: 30px;
+        padding-left: 20px;
+    }
+
+     #cancel:hover {
+        color: rgb(239, 232, 162);
+     }
+
+    #side-bar-1 p {
+        font-size: 18px;
+        padding-right: 30px;
+        font-weight: 600;
+        letter-spacing: .8px;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+
+ #side-bar-2 {
+        height: 90%;
+        background-color: rgb(0, 0, 0);
+         display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #side-bar-2 p {
+        font-size: 25px;
+        padding-left: 45px;
+        padding-bottom: 15px;
+    }
+
+    #side-bar-2-content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-size: 35px;
+        margin: 0 40px;
+        gap: 20px;
+        cursor: pointer;
+    }
+
+    #side-bar-2-content :hover{
+         color: #ba7525;
+         transform: translateX(8px);
+    }
+
+.video {
+    /* width: 100%; */
+    height: 100vh;
+    overflow: hidden;
+}
+
+ #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;       
+      z-index: -1;             
+}
+
+.video .video-content {
+    width: 700px;
+    height: 220px;
+    position: absolute;
+    top: 80%;
+    left: 42%;
+    transform: translate(-80%, -42%);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    /* z-index: -1;   */
+}
+
+.video-content h4 {
+    font-size: 50px;
+}
+
+.p {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    letter-spacing: 2px;
+    line-height: 23px;
+}
+
+.video-content button {
+    width: 150px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-content button:hover {
+transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(255, 248, 248, 0.3);
+  color: rgb(0, 0, 0);
+      border: 2px solid rgb(0, 0, 0);
+      background-color: white;
+}
+
+.order-now {
+    /* width: 100%; */
+    height: 100vh;
+
+}
+
+.order-now-1 {
+    /* width: 100%; */
+    height: 82%;
+    position: relative;
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210907/pngtree-watch-dial-time-passing-image_816791.jpg");
+    background-size: cover;
+}
+
+.order-now-1 #order-now-1-text {
+    /* width: 100%; */
+    height: 290px;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    transform: translate(-30%, -10%);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+#order-now-1-text #text-1 p {
+    font-size: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    line-height:70px;
+    letter-spacing: 2px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#order-now-1-text p {
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding-top: 5px;
+}
+
+#order-now-1-text button {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 10px;
+     padding: 0.75em 1.5em;
+  position: relative;
+  transition: background-position 0.5s ease, box-shadow 0.3s ease;
+  background-size: 200% 200%;
+}
+
+#order-now-1-text button:hover {
+  /* background-position: right center; */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  color: rgb(237, 182, 55);
+   transform: translateX(10px);
+}
+
+.order-now-2 {
+    /* width: 100%; */
+    height: 18%;
+    background-color: rgb(28, 27, 27);
+    display: flex;
+    align-items: center;
+}
+
+#order-2-left {
+    width: 37%;
+    height: 70%;
+    background-color:rgb(28, 27, 27);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+     color: rgb(229, 227, 227);
+    padding-right: 80px;
+}
+
+#order-2-left h3 {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+#order-2-left p {
+    font-size: 15px;
+    padding-right: 15px;
+     letter-spacing: .6px;
+}
+
+#order-2-mid {
+    width: 26%;
+    height: 70%;
+    background-color: rgb(28, 27, 27);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(229, 227, 227);
+    border-left: 1px solid rgb(206, 200, 200);
+    border-right: 1px solid rgb(183, 177, 177);
+}
+
+#order-2-mid h3 {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+#order-2-mid p {
+    font-size: 15px;
+    padding-bottom: 3px;
+    letter-spacing: .6px;
+}
+
+#order-2-right {
+    width: 37%;
+    height: 70%;
+    background-color: rgb(28, 27, 27);
+     color: rgb(229, 227, 227);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+     padding-left: 80px;
+}
+
+#order-2-right h3 {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+#order-2-right p {
+    font-size: 15px;
+    padding-left: 25px;
+     letter-spacing: .6px;
+}
+
+.luxury-detail {
+    width: 100%;
+    height: 1600px;
+    background-color: rgb(247, 247, 244);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 130px;
+}
+
+.luxury-detail-1 {
+    width: 80%;
+    height: 38%;
+    display: flex;
+}
+
+#luxury-detail-1-photo {
+    width: 47%;
+    height: 100%;
+    background-image: url("https://patek-res.cloudinary.com/dfsmedia/0906caea301d42b3b8bd23bd656d1711/256367-51884") ;
+    background-size: cover;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+#luxury-detail-1-content {
+    width: 53%;
+    height: 100%;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+}
+
+#content-text-1 {
+    height: 50%;
+     display: flex;
+     flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+}
+
+#content-text-1 #text-1 {
+     display: flex;
+     flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+#content-text-1 #text-1 p {
+  font-size: 30px;
+  color: #8c7a66;
+}
+
+#content-text-1 #text-1 span {
+  font-size: 18px;
+  color: #8c7a66;
+}
+
+
+#content-text-1 #text-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    opacity: .8;
+    color: black;
+    gap: 3px;
+}
+
+#content-text-1 button {
+    width: 130px;
+    height: 60px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 2px solid #8c7a66;
+    color: #8c7a66;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#content-text-1 button:hover {
+    color: green;
+    border: 2px solid green;
+    transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.luxury-detail-2 {
+    width: 80%;
+    height: 38%;
+    display: flex;
+}
+
+#luxury-detail-2-content {
+    width: 53%;
+    height: 100%;
+    display: inline-block;
+    display: flex;
+     flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+#luxury-detail-2-photo {
+    width: 47%;
+    height: 100%;
+    background-image: url("https://assets.europeanwatch.com/containers/assets/blog/1z2a0617-1-scaled.jpg/181eecca0b9a918957d58681742711c2/1z2a0617-1-scaled.webp");
+    background-size: cover;
+     border-radius: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#content-text-2 {
+    height: 50%;
+     display: flex;
+     flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+}
+
+#content-text-2 #text-3 {
+     display: flex;
+     flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+#content-text-2 #text-3 p {
+  font-size: 35px;
+  color: #8c7a66;
+}
+
+
+#content-text-2 #text-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    opacity: .8;
+    color: black;
+    gap: 3px;
+}
+
+#content-text-2 button {
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 2px solid #8c7a66;
+    color: #8c7a66;
+    cursor: pointer;
+    border-radius: 10px;
+     transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#content-text-2 button:hover {
+     color: green;
+    border: 2px solid green;
+    transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.hand-watch {
+    height: 700px;
+    background-image:url("https://swisswatches-magazine.com/uploads/2022/10/Patek-Philippe-Nautilus-5811-1G-001-Novelty-2022.jpg") ;
+    background-size: cover;
+    display: flex;
+     position: relative;
+}
+
+#hand-watch-content {
+    width: 700px;
+    height: 220px;
+    background-color: transparent;
+   position: absolute;
+   color: rgb(255, 255, 255);
+   font-weight: 600;
+    top: 75%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+}
+
+#watch-content-text-1 {
+    font-size: 30px;
+}
+
+#watch-content-text-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 17px;
+    line-height: 22px;
+}
+
+#hand-watch-content button {
+    width: 250px;
+    height: 50px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 2px solid white;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#hand-watch-content button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 4px solid #000000;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+#hand-watch-content  button:hover::before {
+  transform: scaleX(1);
+  color: red;
+}
+
+.collection {
+    height: 700px;
+    background-color: rgb(247, 247, 244);
+     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#collection-box {
+    width: 80%;
+    height: 70%;
+    background-color:transparent;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.collection-1 {
+    width: 22%;
+    height: 100%;
+}
+
+.collection-1 .box-1 {
+    width: 100%;
+    height: 70%;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.collection-1 .box-2 {
+    width: 100%;
+    height: 30%;
+    background-color: white;
+    font-weight: 550 ;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 20px 10px;
+    line-height: 20px;
+    letter-spacing: .3px;
+}
+
+.collection-1 .box-2 span {
+    padding-top: 20px;
+    color: rgb(167, 24, 24);
+    font-weight: 700;
+}
+
+.footer {
+    height: 500px;
+    background-color: white;
+}
+
+.ending {
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top:.8px solid rgb(189, 185, 185) ;
+}
+
+#end-1 {
+    width: 50px;
+    height: 50px;
+    background-image: url("https://i.pinimg.com/1200x/e8/76/bd/e876bde5f1b9a5e348663e1733268b17.jpg");
+    background-size: cover;
+}
+#end-2 {
+    width: 300px;
+    margin-top: 10px;
+    color: black;
+}
+
+#end-2 p {
+     font-size: 25px;
+}
+
+#end-2 span {
+    font-size: 16px;
+    padding-top: 13px;
+}
+    </style>
+</head>
+<body>
+   <div class="nav-bar">
+    <button id="menu-btn"><i class="fa-solid fa-bars"><i>MENU</i></i></button> 
+    <h4>PATEK PHILLIPE</h4>
+    <i id="search"><i class="fa-solid fa-magnifying-glass"></i>
+    <div class="side-bar">
+        <div id="side-bar-1">
+            <a id="cancel"><i class="fa-solid fa-xmark"></i></a>
+            <p>PATEK PHILLIPE</p>
+        </div>
+          <div id="side-bar-2">
+            <p>Home</p>
+            <div id="side-bar-2-content">
+                <a>Collection</a>
+                <a>Manufacture</a>
+                <a>Service</a>
+                 <a>Museum</a>
+                 <a>Point of scale</a>
+                 <a>Carrers</a>
+            </div>
+          </div>
+    </div>
+   </div>
+   
+  <div class="video">
+    <video autoplay muted loop id="bg-video">
+    <source src="animation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-content">
+    <h4>GONDOLO SERATA</h4>
+    <div class="p"><p>A novelty set with spessartites and featuring a sapphire crystal</p>
+    <p>dial adorned with a zebra motif.</p></div>
+    <a href="https://www.patek.com/en/collection/gondolo/4962-200r-010"><button>Discover More</button></a>
+  </div>
+  </div>
+<div class="order-now">
+    <div class="order-now-1">
+        <div id="order-now-1-text">
+           <div id="text-1"> <p> Allow Yourself To</p>
+        <p>Be A Step Ahead</p></div>
+            <p>Choose a watch that expresses your uniqueness</p>
+           <a href="https://www.patek.com/en/points-of-sale"> <button>Order Now</button></a>
+        </div>
+    </div>
+    <div class="order-now-2">
+      <div id="order-2-left">
+        <h3>Extended Warranty</h3>
+        <p>up to 15 year coverage</p>
+      </div>
+       <div id="order-2-mid">
+         <h3>Free Shipping</h3>
+         <p>We offer free shipping all over</p>
+         <p>The world</p>
+       </div>
+        <div id="order-2-right">
+           <h3>Free 30 Days Returns</h3>
+           <p>Offered On All items </p>
+        </div>
+    </div>
+</div>
+<div class="luxury-detail">
+  <div class="luxury-detail-1">
+    <div id="luxury-detail-1-photo"></div>
+    <div id="luxury-detail-1-content">
+      <div id="content-text-1">
+        <div id="text-1">
+          <span>The power of independence</span>
+        <p>THE LAST FAMILY-OWNED</p>
+        <p>GENEVAN MANUFACTURE</p>
+        </div>
+        <div id="text-2">
+          <p>Owned by the Stern family since 1932, our Manufacture benefits</p>
+          <p>from full creative freedom, which allows us to design, develop</p>
+          <p>and craft watches that connoisseurs consider to be the world's</p>
+          <p>finest - as pledged by our founders Antoine Norbert de Patek and</p>
+          <p>Jean Adrien Philippe.</p>
+          </div>
+          <a href="https://www.patek.com/en/manufacture/a-story-of-independence/our-values"><button>OUR VALUES</button></a>
+      </div>
+    </div>
+  </div>
+  <div class="luxury-detail-2">
+    <div id="luxury-detail-2-content">
+      <div id="content-text-2">
+        <div id="text-3">
+          <p>OUR COMMITMENT TO</p>
+          <p>SERVICE</p>
+        </div>
+        <div id="text-4">
+          <p>At Patek Philippe, we pledge to service, repair, or restore any</p>
+          <p>timepiece produced by our manufacture since 1839, regardless of</p>
+          <p>its age.</p>
+        </div>
+       <a href="https://www.patek.com/en/service/our-commitment-to-service/our-commitment-to-service"> <button>DISCOVER MORE</button></a>
+      </div>
+    </div>
+    <div id="luxury-detail-2-photo"></div>
+  </div>
+</div>
+<div class="hand-watch">
+  <div id="hand-watch-content">
+    <div id="watch-content-text-1">
+      <p>OUR COLLECTION</p>
+    </div>
+     <div id="watch-content-text-2">
+      <p>We have over 150 references in regular production, manufactured in limited</p>
+    <p>quantity to ensure they respect the extremely high quality standards of the</p>
+  <p>Patek Philippe Seal.</p>
+</div>
+    <a href="collection.html"> <button id="btn">DISCOVER OUR COLLECTION</button></a>
+  </div>
+</div>
+<div class="collection">
+<div id="collection-box">
+ <div class="collection-1">
+  <div class="box-1" style="background-image: url('https://i0.wp.com/haute24.com/wp-content/uploads/2025/10/patek-philippe-grand-complications-perpetual-chronograph-hand-wind-green-dial-mens-watch-5204g001_1__02857.1692440468.386.513.jpgc1_.png?fit=350%2C350&ssl=1');"></div>
+  <div class="box-2">
+ <p>Patek Philippe Grand  </p>
+  <p>Complications Green Sunburst</p>
+  <p> Dial Watch</p>
+  <span>$3,423</span>
+  </div>
+ </div>
+    <div class="collection-1">
+    <div class="box-1"  style="background-image: url('https://www.mallory-jewellers.com/cdn/shop/files/5270p_014_1024x.jpg?v=1732186949');"></div>
+    <div class="box-2">
+      <p>Patek Philippe Grand </p>
+      <p> Complications Perpetual </p>
+      <p>Calendar</p>
+      <span>$4,493</span>
+    </div>
+  </div>
+    <div class="collection-1">
+    <div class="box-1"  style="background-image: url('https://swisswatches-magazine.com/uploads/2021/10/Patek-Philippe-Perpetual-Calendar-Chronograph-Ref-2499-Asprey-by-Sothebys.jpg');"></div>
+    <div class="box-2">
+      <p>Patek Philippe Skeleton Open  </p>
+      <p> Heart Transparent Back </p>
+      <p>Square Men's Gold </p>
+      <span>$9,000</span>
+    </div>
+  </div>
+    <div class="collection-1">
+    <div class="box-1"  style="background-image: url('https://diamondsourcenyc.com/wp-content/uploads/2025/09/Patek-Philippe-Grand-Complications-Sky-Moon-Tourbillon-Double-Face-44mm-Watch-Ref-6002G-010-Black-Enamel-Dial-in-Engraved-18K-White-Gold-Black-Leather-Strap-1.jpg');"></div>
+    <div class="box-2">
+      <p>Patek Phillipe Geneve  </p>
+     <p> Stainless Steel Full Black </p>
+     <p>-Luxury Men's Watch</p>
+     <span>$12,345</span>
+    </div>
+  </div>
+</div>
+</div>
+   <div class="ending">
+    <div id="end-1"></div>
+    <div id="end-2">
+        <p>PATEK PHILLIPE</p>
+        <SPAN>GENEVE</SPAN>
+    </div>
+   </div>
+
+
+
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector("#menu-btn");
+    const sideBar = document.querySelector(".side-bar");
+    const cancel = document.querySelector("#cancel");
+
+    if (!sideBar) return console.warn(".side-bar not found");
+
+    const toggleSidebar = () => sideBar.classList.toggle("open");
+    const closeSidebar = () => sideBar.classList.remove("open");
+    
+    if (menu) menu.addEventListener("click", toggleSidebar);
+    if (cancel) cancel.addEventListener("click", closeSidebar);
+});
+   </script>
+
+
+   
+
+  
+
+</body>
+</html>

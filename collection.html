@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Collection</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     background-color: rgb(0, 0, 0);
+      text-align: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+.nav-main {
+      height: 500px;
+      background-image: url("https://i.pinimg.com/1200x/76/f3/14/76f3145e76abfbf1dda6d7c78f1c2077.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+
+.nav-bar {
+    height: 100px;
+    background-color: transparent;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 2px;
+    position: relative;
+    
+    padding-top: 30px;
+}
+
+
+#menu-btn  {
+    background: none;
+    border: none;
+    color: rgb(217, 214, 214);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 50px;
+}
+
+#menu-btn i {
+    padding-left: 10px;
+    letter-spacing: 3px;
+}
+
+.nav-bar #search {
+    padding-right: 50px;
+    font-size: 20px;
+    color: rgb(217, 214, 214);
+}
+
+#menu-btn:hover {
+    color: rgb(236, 228, 164);
+}
+
+
+#menu-btn i {
+    padding-left: 10px;
+    letter-spacing: 3px;
+}
+.nav-bar h4 {
+    cursor: pointer;
+}
+
+ .side-bar {
+        /* width: 350px;
+        height: 100vh; */
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        position: fixed;
+         /* top: 0;
+        left: -100%; */
+        /* z-index: 999; */
+          position: fixed;
+    top: 0;
+    left: -350px; 
+    width: 350px;
+    height: 100vh;
+    transition: left 0.25s ease;
+    z-index: 999;
+    }
+
+    .side-bar.open {
+    left: 0;
+}
+
+    #side-bar-1 {
+        height: 10%;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #cancel  {
+        font-size: 30px;
+        padding-left: 20px;
+    }
+
+     #cancel:hover {
+        color: rgb(239, 232, 162);
+     }
+
+    #side-bar-1 p {
+        font-size: 18px;
+        padding-right: 30px;
+        font-weight: 600;
+        letter-spacing: .8px;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+
+ #side-bar-2 {
+        height: 90%;
+        background-color: rgb(0, 0, 0);
+         display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #side-bar-2 p {
+        font-size: 25px;
+        padding-left: 45px;
+        padding-bottom: 15px;
+    }
+
+    #side-bar-2-content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-size: 35px;
+        margin: 0 40px;
+        gap: 20px;
+        cursor: pointer;
+    }
+
+    #side-bar-2-content :hover{
+         color: #ba7525;
+         transform: translateX(8px);
+    }
+
+
+.collection-content {
+    height: 400px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#text-1 {
+   margin: 25px;
+   background-color: transparent;
+   color: #8c7a66;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+
+#text-1 span {
+    font-size: 19px;
+    letter-spacing: .8px;
+}
+
+#text-1 p {
+    font-size: 45px;
+    opacity: .7;
+}
+
+#text-2 {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   background-color: transparent;
+   color: white;
+}
+
+#text-2 p {
+    font-size: 18px;
+    letter-spacing: .8px;
+}
+
+.user-collection {
+    padding: 100px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    gap: 100px;
+}
+
+.card {
+    width: 250px;
+    height: 400px;
+}
+
+.card1 {
+    width: 100%;
+    height: 75%;
+}
+
+.card2 {
+    width: 100%;
+    height: 25%;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    text-align: start;
+    letter-spacing: .8px;
+    padding: 5px;
+}
+
+.card2 span {
+    color: rgb(169, 22, 22);
+}
+
+#line-m {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#line {
+    position: absolute;
+    width: 85%;
+    height: .8px;
+    background-color: rgb(165, 161, 161);
+}
+
+.ending {
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border-top:1px solid black ; */
+}
+
+#end-1 {
+    width: 50px;
+    height: 50px;
+    background-image: url("https://i.pinimg.com/1200x/e8/76/bd/e876bde5f1b9a5e348663e1733268b17.jpg");
+    background-size: cover;
+}
+#end-2 {
+    width: 300px;
+    margin-top: 10px;
+    color: black;
+}
+
+#end-2 p {
+     font-size: 25px;
+}
+
+#end-2 span {
+    font-size: 16px;
+    padding-top: 13px;
+}
+
+
+
+</style>
+</head>
+<body>
+   <div class="nav-main">
+     <div class="nav-bar">
+     <button id="menu-btn"><i class="fa-solid fa-bars"><i>MENU</i></i></button> 
+    <h4>PATEK PHILLIPE</h4>
+    <i id="search"><i class="fa-solid fa-magnifying-glass"></i>
+    <div class="side-bar">
+        <div id="side-bar-1">
+            <a id="cancel"><i class="fa-solid fa-xmark"></i></a>
+            <p>PATEK PHILLIPE</p>
+        </div>
+          <div id="side-bar-2">
+            <p>Home</p>
+            <div id="side-bar-2-content">
+                <a>Collection</a>
+                <a>Manufacture</a>
+                <a>Service</a>
+                 <a>Museum</a>
+                 <a>Point of scale</a>
+                 <a>Carrers</a>
+            </div>
+          </div>
+    </div>
+    </div>
+    <div class="collection-content">
+        <div id="text-1">
+            <span>A legacy of timepieces</span>
+            <p>OUR COLLECTION</p>
+        </div>
+        <div id="text-2">
+            <p>The prevailing Patek Philippe spirit of innovation has contributed to giving our</p>
+            <p>creations exceptional longevity and reliability. A wide range of models are</p>
+            <p>presented in our current collection, many of which are considered iconic</p>
+            <p>watches.</p>
+        </div>
+    </div>
+   </div>
+   <div class="user-collection">
+   </div>
+     <div id="line-m">
+          <div id="line"></div>
+        </div>
+   <div class="ending">
+    <div id="end-1"></div>
+    <div id="end-2">
+        <p>PATEK PHILLIPE</p>
+        <SPAN>GENEVE</SPAN>
+    </div>
+   </div>
+
+   <script>
+    
+    let users = [
+{
+    product_name: "Patek Philippe Gondolo 18ct White Gold Black Leather Bracelet",
+    product_img: "https://patek-res.cloudinary.com/dfsmedia/0906caea301d42b3b8bd23bd656d1711/5785-51887",
+    product_price: "$12,000",
+},
+{
+    product_name: "Patek Philippe Complications Leather",
+    product_img: "https://www.orologidiclasse.com/wp-content/uploads/2023/07/patek-nautilus-2019.jpg",
+    product_price: "$3,456",
+},
+{
+    product_name: "Patek Philippe Complication Rose Dial Watch",
+    product_img: "https://www.swissluxury.com/product_images/5227G_001.jpg",
+    product_price: "$8,654",
+},
+{
+    product_name: "Patek Philippe Calatrava Watch",
+    product_img: "https://cdn.thewatchpages.com/app/uploads/2025/04/08211902/patek-philippe-twenty-4-perpetual-calendar-73401r-010-800x1333.jpeg?width=400",
+    product_price: "$12,435",
+},
+{
+    product_name: "Patek Philippe Calatrava Ebony Black Dial Watch",
+    product_img: "https://img.chrono24.com/images/uhren/37126463-u31z16ib7t4zvztzmwcgs383-ExtraLarge.jpg",
+    product_price: "$654",
+},
+{
+    product_name: "Patek Philippe Nautilus 38mm Stainless Steel",
+    product_img: "https://watchesoff5th.com/cdn/shop/products/patek-philippe-complication-calatrava-pilot-travel-time-white-gold-blue-dial-brown-leather-strap-ref-5524g-001-318362_1280x.jpg?v=1679412577",
+    product_price: "$13,567",
+},
+{
+    product_name: "Patek Philippe Square Men's Stainless Steel ",
+    product_img: "https://s3.amazonaws.com/ISHOWIMAGES/Patek_Philippe/1x1/800/40250058_0.jpg",
+    product_price: "$34,657",
+},
+{
+    product_name: "Patek Philippe Geneve Skeleton Automatic Chronograph ",
+    product_img: "https://imagedelivery.net/lyg2LuGO05OELPt1DKJTnw/8979d6d3-2cab-4dd2-71ca-4b9aeff01d00/public",
+    product_price: "$23,657",
+},
+{
+    product_name: "patek Philippe Golden Ellipse - Blue Dial",
+    product_img: "https://www.medusa.jewelry/cdn/shop/files/42mm-patek-philippe-aquanaut-5968r-montre-or-rose-bijoux-medusa-homme-quebec-canada-838_1600x.jpg?v=1712424250",
+    product_price: "$67,897",
+},
+{
+    product_name: "Patek Philippe Men's Aquanaut Black Dial Watch",
+    product_img: "https://www.cortinawatch.com/wp-content/uploads/2025/02/5270J-001_desktop.webp",
+    product_price: "$2,342",
+},
+{
+    product_name: "Patek Philippe Grand Complications Perpetual Chronograph Watch",
+    product_img: "https://img.thehourglass.com/tachyon/2023/10/7140R_001_1.jpg",
+    product_price: "$2,897",
+},
+{
+    product_name: "Patek Philippe Skeleton Transparent Automatic Chronograph",
+    product_img: "https://www.prestonsdiamonds.co.uk/storage/products/11571/thumb.jpg",
+    product_price: "$43,657",
+},
+{
+    product_name: "Philippe Nautilus 5711",
+    product_img: "https://www.ap-watches.com/ap-watches/fotos/patek-philippe-aquanaut-5167a-acero-nuevo-a-estrenar-2019-id14649-1603793138.png",
+    product_price: "$34,768",
+},
+{
+    product_name: "patek Philippe Men's Nautilus Automatic Movement Watch",
+    product_img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT16J9Au3-YgSbAvyXuo1SIUDA_q-FNHZHmRw&s",
+    product_price: "$98,765",
+},
+{
+    product_name: "Philippe Nautilus 5711 Mens Patek Patek Philippe",
+    product_img: "https://juwelier-gadebusch.de/templates/yootheme/cache/f9/5164g-001_face-f9c1397f.jpeg",
+    product_price: "$2,453",
+},
+{
+    product_name: "Patek Philippe Aquanaut Automatic",
+    product_img: "https://www.prestonsdiamonds.co.uk/storage/products/11572/thumb.jpg",
+    product_price: "$8,546",
+},
+{
+    product_name: "Patek Philippe Nautilus Chronograph",
+    product_img: "https://img.thehourglass.com/tachyon/2025/04/5308G-001-1.jpeg?w=3840&quality=90",
+    product_price: "$9,687",
+},
+{
+    product_name: "Patek Philippe Nautilus Automatic Golden Watch",
+    product_img: "https://images.watchfinder.co.uk/imgv3/stock/302042/PatekPhilippe-Complications-5205R-001-302042-240702-111843.jpg;quality=90;h=600,%20https://images.watchfinder.co.uk/imgv3/stock/302042/PatekPhilippe-Complications-5205R-001-302042-240702-111843.jpg;quality=55;h=1200%202x",
+    product_price: "$23,685",
+},
+{
+    product_name: "Patek Philippe Annual Calendar",
+    product_img: "https://img.chrono24.com/images/uhren/42766108-i1oq0pwrve962ty17q4f33s3-ExtraLarge.jpg",
+    product_price: "$65,567",
+},
+{
+    product_name: "Patek Philippe Ref 5970G-001 Unpolished",
+    product_img: "https://images.squarespace-cdn.com/content/v1/5b213f95506fbec9b54e014c/d9ea5e3b-7af8-472d-8489-84ae39186f73/DSC08698.JPG",
+    product_price: "$65,897",
+}
+   ]
+
+
+   document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector("#menu-btn");
+    const sideBar = document.querySelector(".side-bar");
+    const cancel = document.querySelector("#cancel");
+
+    if (!sideBar) return console.warn(".side-bar not found");
+
+    const toggleSidebar = () => sideBar.classList.toggle("open");
+    const closeSidebar = () => sideBar.classList.remove("open");
+    
+    if (menu) menu.addEventListener("click", toggleSidebar);
+    if (cancel) cancel.addEventListener("click", closeSidebar);
+});
+
+
+    let container = document.querySelector(".user-collection");
+
+    users.forEach(user => {
+
+    
+     let box = document.createElement("div");
+     box.className = "card";
+
+    let box1 = document.createElement("div");
+    box1.className = "card1";
+    box1.style.backgroundImage = `url(${user.product_img})`;
+    box1.style.backgroundSize = "cover";
+    box1.style.backgroundPosition = "center";
+
+     let box2 = document.createElement("div");
+     box2.className = "card2";
+    
+     let p = document.createElement("p");
+     p.textContent = user.product_name
+
+      let span = document.createElement("span");
+     span.textContent = user.product_price
+
+     box.appendChild(box1);
+    box.appendChild(box2);
+
+    box2.appendChild(p);
+    box2.appendChild(span);
+
+     container.appendChild(box);
+
+    });
+   </script>
+</body>
+</html>
